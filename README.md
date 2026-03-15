@@ -16,7 +16,25 @@ Python 3.8+ installed
 
 ## Usage
 ```bash
-python csv_cleaner.py
+Commands:
+pip3 / python3     - Mac/Linux
+pip  / pythin      - Windows
+
+# 1. Download repo
+git clone https://github.com/adamdev/book-price-scraper.git
+cd book-price-scraper
+# or simply download zip file
+
+# 2. Create venv (optional but recommended)
+python -m venv venv
+source venv/bin/activate      # Mac/Linux
+venv\Scripts\activate         # Windows
+
+# 3. Install requirements
+pip install -r requirements.txt
+
+# 4. Uruchom
+python price_scraper.py
 ```
 Generates a `dirty_data.csv` demo file, cleans it, and saves `clean_data.csv` with a full report.
 
