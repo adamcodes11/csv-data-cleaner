@@ -9,6 +9,10 @@ A Python script that automatically detects and fixes common data quality issues 
 - Flags and replaces invalid emails
 - Removes unrealistic age values
 - Standardizes date formats to YYYY-MM-DD
+## Requirements
+```
+Python 3.8+ installed
+```
 
 ## Usage
 ```bash
