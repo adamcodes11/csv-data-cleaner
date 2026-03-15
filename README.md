@@ -25,12 +25,7 @@ git clone https://github.com/adamcodes11/csv-data-cleaner.git
 cd csv-data-cleaner
 # or simply download zip file
 
-# 2. Create venv (optional but recommended)
-python* -m venv venv
-source venv/bin/activate      # Mac/Linux
-venv\Scripts\activate         # Windows
-
-# 3. Run
+# 2. Run
 python* csv_cleaner.py
 ```
 Generates a `dirty_data.csv` demo file, cleans it, and saves `clean_data.csv` with a full report.
