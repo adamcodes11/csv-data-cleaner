@@ -3,7 +3,13 @@ import os
 import random
 from datetime import datetime, timedelta
 
-def generate_dirty_csv(filename="dirty_data.csv"):
+
+def generate_dirty_csv(filename=None):
+    os.makedirs("dirty_data", exist_ok=True)
+    if filename is None:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"dirty_data/dirty_{timestamp}.csv"
+
     headers = ["id", "first_name", "last_name", "email", "phone", "age", "salary", "department", "join_date"]
     departments = ["Engineering", "Marketing", "Sales", "HR", "Finance"]
     first_names = ["Alice", "Bob", "Carol", "David", "Emma", "Frank", "Grace", "Henry"]
@@ -38,7 +44,13 @@ def generate_dirty_csv(filename="dirty_data.csv"):
     print(f"Generated dirty CSV: {filename} ({len(rows)} rows)")
     return filename
 
-def clean_csv(input_file, output_file="clean_data.csv"):
+
+def clean_csv(input_file, output_file=None):
+    os.makedirs("clean_data", exist_ok=True)
+    if output_file is None:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_file = f"clean_data/clean_{timestamp}.csv"
+
     issues = {"missing": 0, "invalid_email": 0, "invalid_age": 0, "duplicates": 0,
               "normalized_dept": 0, "normalized_date": 0, "fixed_name": 0}
 
@@ -98,19 +110,21 @@ def clean_csv(input_file, output_file="clean_data.csv"):
         writer.writerows(cleaned)
 
     print(f"\nCleaning complete!")
-    print(f"  Original rows:     {len(rows)}")
-    print(f"  Cleaned rows:      {len(cleaned)}")
-    print(f"  Duplicates removed:{issues['duplicates']}")
+    print(f"  Original rows:      {len(rows)}")
+    print(f"  Cleaned rows:       {len(cleaned)}")
+    print(f"  Duplicates removed: {issues['duplicates']}")
     print(f"  Missing names fixed:{issues['missing']}")
-    print(f"  Invalid emails:    {issues['invalid_email']}")
-    print(f"  Invalid ages:      {issues['invalid_age']}")
-    print(f"  Dept normalized:   {issues['normalized_dept']}")
-    print(f"  Dates normalized:  {issues['normalized_date']}")
+    print(f"  Invalid emails:     {issues['invalid_email']}")
+    print(f"  Invalid ages:       {issues['invalid_age']}")
+    print(f"  Dept normalized:    {issues['normalized_dept']}")
+    print(f"  Dates normalized:   {issues['normalized_date']}")
     print(f"\nSaved to {output_file}")
 
+
 def main():
-    print("=== CSV Cleaner Demo ===\n")
+    print("=== CSV Cleaner ===\n")
     dirty = generate_dirty_csv()
     clean_csv(dirty)
+
 
 main()
