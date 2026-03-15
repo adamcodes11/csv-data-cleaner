@@ -10,11 +10,6 @@ A Python script that automatically detects and fixes common data quality issues 
 - Removes unrealistic age values
 - Standardizes date formats to YYYY-MM-DD
 
-## Requirements
-```
-pip install (standard library only)
-```
-
 ## Usage
 ```bash
 python csv_cleaner.py
